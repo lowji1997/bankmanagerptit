@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7AC5DF6B-A3E8-4A58-B1F6-A98C9171C2BB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BankManager</RootNamespace>
+    <AssemblyName>BankManager</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.140.1000.523\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAL\SQLProvider.cs" />
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\AccountDTO.cs" />
+    <Compile Include="DTO\Customer.cs" />
+    <Compile Include="DTO\Enums\StatusAccount.cs" />
+    <Compile Include="DTO\Enums\Transactions.cs" />
+    <Compile Include="DTO\Rule.cs" />
+    <Compile Include="DTO\TransactionDTO.cs" />
+    <Compile Include="Formloginchange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formloginchange.Designer.cs">
+      <DependentUpon>Formloginchange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmaddacc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmaddacc.Designer.cs">
+      <DependentUpon>frmaddacc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmaddatm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmaddatm.Designer.cs">
+      <DependentUpon>frmaddatm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdmin.Designer.cs">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCofirmation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCofirmation.Designer.cs">
+      <DependentUpon>frmCofirmation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmdrawals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmdrawals.Designer.cs">
+      <DependentUpon>frmdrawals.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainCustomer.Designer.cs">
+      <DependentUpon>frmMainCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUser.Designer.cs">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListUser.Designer.cs">
+      <DependentUpon>frmListUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\Enums\UserType.cs" />
+    <Compile Include="DTO\UserDTO.cs" />
+    <Compile Include="frminformationCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frminformationCustomer.Designer.cs">
+      <DependentUpon>frminformationCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrintPay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrintPay.Designer.cs">
+      <DependentUpon>frmPrintPay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSend.Designer.cs">
+      <DependentUpon>frmSend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmShowReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShowReport.Designer.cs">
+      <DependentUpon>frmShowReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTransaction.Designer.cs">
+      <DependentUpon>frmTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="DTO\SessionDTO.cs" />
+    <Compile Include="QuanlytaikhoannganhangDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanlytaikhoannganhangDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Formloginchange.resx">
+      <DependentUpon>Formloginchange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmaddacc.resx">
+      <DependentUpon>frmaddacc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmaddatm.resx">
+      <DependentUpon>frmaddatm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUser.resx">
+      <DependentUpon>frmAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAdmin.resx">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCofirmation.resx">
+      <DependentUpon>frmCofirmation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmdrawals.resx">
+      <DependentUpon>frmdrawals.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frminformationCustomer.resx">
+      <DependentUpon>frminformationCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListUser.resx">
+      <DependentUpon>frmListUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainCustomer.resx">
+      <DependentUpon>frmMainCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrintPay.resx">
+      <DependentUpon>frmPrintPay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSend.resx">
+      <DependentUpon>frmSend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShowReport.resx">
+      <DependentUpon>frmShowReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTransaction.resx">
+      <DependentUpon>frmTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Printreport.rdlc" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="rpListUser.rdlc" />
+    <EmbeddedResource Include="rptpay.rdlc" />
+    <None Include="add.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="QuanlytaikhoannganhangDataSet.xsc">
+      <DependentUpon>QuanlytaikhoannganhangDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QuanlytaikhoannganhangDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QuanlytaikhoannganhangDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QuanlytaikhoannganhangDataSet.xss">
+      <DependentUpon>QuanlytaikhoannganhangDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Resources\login_16_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Sed-02_2232585.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Sed-09_2232326.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Sed-02_22325851.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\money.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_personal-information_47997.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_banker_45557.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Transfer Document_38853.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Money_Pig1_11002.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Money_10998.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_print_44993.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\if_Print_56266.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1001031.jpg" />
+    <None Include="Resources\icons8-administrator-male-48.png" />
+    <None Include="Resources\icons8-administrator-male-20.png" />
+    <None Include="Resources\icons8-administrator-male-30.png" />
+    <None Include="Resources\icons8-administrator-male-30 %281%29.png" />
+    <None Include="Resources\icons8-secure-30.png" />
+    <None Include="Resources\icons8-checked-30.png" />
+    <None Include="Resources\icons8-checked-301.png" />
+    <None Include="Resources\icons8-checked-25.png" />
+    <None Include="Resources\icons8-collaborator-female-50.png" />
+    <None Include="Resources\icons8-print-45.png" />
+    <None Include="Resources\icons8-compose-45.png" />
+    <None Include="Resources\icons8-delete-25.png" />
+    <None Include="Resources\icons8-search-20.png" />
+    <None Include="Resources\icons8-delete-251.png" />
+    <None Include="Resources\icons8-downloading-updates-30.png" />
+    <None Include="Resources\icons8-downloading-updates-301.png" />
+    <None Include="Resources\icons8-delete-30.png" />
+    <None Include="Resources\icons8-administrator-male-50.png" />
+    <None Include="Resources\icons8-contact-info-40.png" />
+    <None Include="Resources\icons8-cash-in-hand-40.png" />
+    <None Include="Resources\icons8-euro-money-40.png" />
+    <None Include="Resources\icons8-online-money-transfer-40.png" />
+    <None Include="Resources\bank-folded-icon.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
